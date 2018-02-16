@@ -46,6 +46,8 @@ has password => (
 
 =head2 activkey
 
+Your authorized access key.
+
 =cut
 
 has activkey => (
@@ -53,6 +55,8 @@ has activkey => (
 );
 
 =head2 base
+
+The base URL.  Default: https://api.hooktheory.com/v1/
 
 =cut
 
@@ -147,12 +151,18 @@ __END__
 
 =head1 THANK YOU
 
-Dan Book
+Dan Book (DBOOK)
 
 =head1 SEE ALSO
 
+L<https://www.hooktheory.com/api/trends/docs>
+
 L<Moo>
 
-L<https://www.hooktheory.com/>
+L<Mojo::UserAgent>
+
+L<Mojo::JSON::MaybeXS>
+
+L<Mojo::JSON>
 
 =cut
