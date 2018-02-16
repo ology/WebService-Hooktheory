@@ -95,7 +95,7 @@ sub BUILD {
 
         my $data = _handle_response($tx);
         $self->activkey( $data->{activkey} )
-            if $data;
+            if $data && $data->{activkey};
     }
 }
 
