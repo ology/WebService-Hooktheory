@@ -2,7 +2,7 @@ package WebService::Hooktheory;
 
 # ABSTRACT: Access to the Hooktheory API
 
-our $VERSION = '0.0101';
+our $VERSION = '0.02';
 
 use Moo;
 use strictures 2;
@@ -134,7 +134,13 @@ sub _handle_response {
     my $data;
 
     if ( my $res = $tx->success ) {
-        $data = decode_json( $res->body );
+        my $body = $res->body;
+        if ( $body =~ /^{/ && $body =~ /}$/ ) {
+            $data = decode_json( $res->body );
+        }
+        else {
+            croak $body, "\n";
+        }
     }
     else {
         my $err = $tx->error;
