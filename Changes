@@ -1,5 +1,8 @@
 Revision history for WebService-Hooktheory
 
 {{$NEXT}}
+    - Improve documentation
+
+0.01 2018-02-15 18:51:28
     - Minted by Dist::Zilla.
     - Kickstarted with help from Grinnz!
