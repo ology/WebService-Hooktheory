@@ -1,8 +1,8 @@
 package WebService::Hooktheory;
 
-# ABSTRACT: Access to https://www.hooktheory.com
+# ABSTRACT: Access to the Hooktheory API
 
-our $VERSION = '0.01';
+our $VERSION = '0.0101';
 
 use Moo;
 use strictures 2;
