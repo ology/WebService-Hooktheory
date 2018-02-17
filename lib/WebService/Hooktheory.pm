@@ -2,7 +2,7 @@ package WebService::Hooktheory;
 
 # ABSTRACT: Access to the Hooktheory API
 
-our $VERSION = '0.0201';
+our $VERSION = '0.0202';
 
 use Moo;
 use strictures 2;
@@ -51,7 +51,7 @@ Your authorized access key.
 =cut
 
 has activkey => (
-    is => 'rw',
+    is => 'ro',
 );
 
 =head2 base
@@ -95,7 +95,7 @@ sub BUILD {
 
         my $data = _handle_response($tx);
 
-        $self->activkey( $data->{activkey} )
+        $self->{activkey} = $data->{activkey}
             if $data && $data->{activkey};
     }
 }
