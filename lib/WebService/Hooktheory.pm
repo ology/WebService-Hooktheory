@@ -12,6 +12,7 @@ use Carp;
 use Mojo::UserAgent;
 use Mojo::JSON::MaybeXS;
 use Mojo::JSON qw( decode_json );
+use Mojo::URL;
 
 =head1 SYNOPSIS
 
@@ -19,7 +20,7 @@ use Mojo::JSON qw( decode_json );
   my $w = WebService::Hooktheory->new( username => 'foo', password => 'bar' );
   # Or:
   $w = WebService::Hooktheory->new( activkey => '1234567890abcdefghij' );
-  my $r = $w->fetch( endpoint => 'trends/nodes', query => { cp => '4,1' } );
+  my $r = $w->fetch( endpoint => '/trends/nodes', query => { cp => '4,1' } );
   print Dumper $r;
 
 =head1 DESCRIPTION
@@ -61,8 +62,19 @@ The base URL.  Default: https://api.hooktheory.com/v1/
 =cut
 
 has base => (
-    is      => 'ro',
-    default => sub { 'https://api.hooktheory.com/v1/' },
+    is      => 'rw',
+    default => sub { Mojo::URL->new('https://api.hooktheory.com/v1') },
+);
+
+=head2 ua
+ 
+The user agent.
+
+=cut
+
+has ua => (
+    is      => 'rw',
+    default => sub { Mojo::UserAgent->new() },
 );
 
 =head1 METHODS
@@ -85,9 +97,7 @@ sub BUILD {
     my ( $self, $args ) = @_;
 
     if ( !$args->{activkey} && $args->{username} && $args->{password} ) {
-        my $ua = Mojo::UserAgent->new;
-
-        my $tx = $ua->post(
+        my $tx = $self->ua->post(
             $self->base . 'users/auth',
             { 'Content-Type' => 'application/json' },
             json => { username => $args->{username}, password => $args->{password} },
@@ -120,9 +130,7 @@ sub fetch {
     $url .= '?' . $query
         if $query;
 
-    my $ua = Mojo::UserAgent->new;
-
-    my $tx = $ua->get( $url, { Authorization => 'Bearer ' . $self->activkey } );
+    my $tx = $self->ua->get( $url, { Authorization => 'Bearer ' . $self->activkey } );
 
     my $data = _handle_response($tx);
 
