@@ -2,7 +2,7 @@ package WebService::Hooktheory;
 
 # ABSTRACT: Access to the Hooktheory API
 
-our $VERSION = '0.0403';
+our $VERSION = '0.0404';
 
 use Moo;
 use strictures 2;
@@ -176,6 +176,8 @@ __END__
 Dan Book (DBOOK)
 
 =head1 SEE ALSO
+
+The examples in the F<eg/> directory.
 
 The tests in F<t/01-methods.t>
 
