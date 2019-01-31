@@ -1,6 +1,5 @@
 #!perl
 use Test::More;
-use Test::Exception;
 
 use Mojo::Base -strict;
 use Mojolicious;
@@ -11,14 +10,14 @@ use_ok 'WebService::Hooktheory';
 
 my $ws = new_ok 'WebService::Hooktheory';
 
-throws_ok { $ws->fetch }
-    qr/No activkey provided/, 'activkey required';
+my $result = try { $ws->fetch } catch { $_ };
+like $result, qr/No activkey provided/, 'activkey required';
 
 $ws = WebService::Hooktheory->new( activkey => '1234567890' );
 isa_ok $ws, 'WebService::Hooktheory';
 
-throws_ok { $ws->fetch }
-    qr/No endpoint provided/, 'endpoint required';
+$result = try { $ws->fetch } catch { $_ };
+like $result, qr/No endpoint provided/, 'endpoint required';
 
 my $mock = Mojolicious->new;
 $mock->log->level('fatal'); # only log fatal errors to keep the server quiet
