@@ -177,6 +177,8 @@ Dan Book (DBOOK)
 
 =head1 SEE ALSO
 
+The tests in F<t/01-methods.t>
+
 L<https://www.hooktheory.com/api/trends/docs>
 
 L<Moo>
