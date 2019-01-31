@@ -71,7 +71,7 @@ has base => (
 );
 
 =head2 ua
- 
+
 The user agent.
 
 =cut
