@@ -2,6 +2,7 @@ Revision history for WebService-Hooktheory
 
 {{$NEXT}}
     - Add the eg/analyze program.
+    - Improve documentation slightly.
 
 0.0403 2019-01-30 21:45:31
     - Argh! Metacpan can't process the previous POD. I found one tiny POD error... Maybe fixing it will work?
