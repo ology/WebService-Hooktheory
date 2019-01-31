@@ -121,6 +121,9 @@ Fetch the results given the B<endpoint> and optional B<query> arguments.
 sub fetch {
     my ( $self, %args ) = @_;
 
+    croak 'No activkey provided' unless $self->activkey;
+    croak 'No endpoint provided' unless $args{endpoint};
+
     my $query;
     if ( $args{query} ) {
         $query = join '&', map { "$_=$args{query}->{$_}" } keys %{ $args{query} };
