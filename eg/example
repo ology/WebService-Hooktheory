@@ -4,7 +4,7 @@ use warnings;
 
 use WebService::Hooktheory;
 
-my $key = shift || die "Usage: perl $0 1234567890abcdefghij end_point [query]\n";
+my $key = shift || die "Usage: perl $0 1234567890abcdefghij [end_point] [query]\n";
 my $ep  = shift || '/trends/nodes';
 my $q   = shift // '4,1';
 
