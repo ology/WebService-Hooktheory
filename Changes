@@ -1,6 +1,10 @@
 Revision history for WebService-Hooktheory
 
 {{$NEXT}}
+    - Add to tests.
+    - Improve documentation.
+
+0.0401 2019-01-14 19:00:07
     - Require Mojolicious 8 to silence the cpantesters reports.
 
 0.0400 2019-01-13 08:06:49
