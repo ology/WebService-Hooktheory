@@ -9,7 +9,7 @@ use Try::Tiny qw(try catch);
 
 use_ok 'WebService::Hooktheory';
 
-my $ws = WebService::Hooktheory->new;
+my $ws = new_ok 'WebService::Hooktheory';
 
 throws_ok { $ws->fetch }
     qr/No activkey provided/, 'activkey required';
