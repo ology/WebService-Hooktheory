@@ -183,11 +183,11 @@ L<https://www.hooktheory.com/api/trends/docs>
 
 L<Moo>
 
-L<Mojo::UserAgent>
+L<Mojo::JSON>
 
 L<Mojo::JSON::MaybeXS>
 
-L<Mojo::JSON>
+L<Mojo::UserAgent>
 
 L<Mojo::URL>
 
