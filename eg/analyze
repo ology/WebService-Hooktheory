@@ -14,7 +14,9 @@ my $ws = WebService::Hooktheory->new( activkey => $key );
 
 my @found;
 
-for my $i ( 1 .. 7 ) {
+# http://forum.hooktheory.com/t/trends-api-chord-input/272
+
+for my $i ( map { 'B' . $_ } 1 .. 7 ) {
     my %query = ( query => { cp => $i } );
 
     print "Fetching $i...\n";
