@@ -17,9 +17,13 @@ use Mojo::URL;
 =head1 SYNOPSIS
 
   use WebService::Hooktheory;
+
   my $w = WebService::Hooktheory->new( username => 'foo', password => 'bar' );
+  print $w->activkey, "\n";
+
   # Or:
   $w = WebService::Hooktheory->new( activkey => '1234567890abcdefghij' );
+
   my $r = $w->fetch( endpoint => '/trends/nodes', query => { cp => '4,1' } );
   print Dumper $r;
 
@@ -87,7 +91,8 @@ Create a new C<WebService::Hooktheory> object.
 
 =head2 BUILD()
 
-Authenticate and set the B<activkey> attribute if given the right credentials.
+Authenticate and set the B<activkey> attribute if given a valid username and
+password.
 
 Skip this step if given an B<activkey> in the constructor.
 
@@ -181,5 +186,7 @@ L<Mojo::UserAgent>
 L<Mojo::JSON::MaybeXS>
 
 L<Mojo::JSON>
+
+L<Mojo::URL>
 
 =cut
