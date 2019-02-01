@@ -5,11 +5,13 @@ use WebService::Hooktheory;
 
 get '/' => sub {
   my $c = shift;
+
   $c->stash( activkey => '' );
   $c->stash( endpoint => '/trends/nodes' );
   $c->stash( query => '' );
   $c->stash( page => 1 );
   $c->stash( results => [] );
+
   $c->render( template => 'index' );
 };
 
