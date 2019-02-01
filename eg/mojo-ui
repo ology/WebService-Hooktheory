@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 use Mojolicious::Lite;
 
-use lib '/Users/gene/sandbox/WebService-Hooktheory/lib';
 use WebService::Hooktheory;
 
 get '/' => sub {
