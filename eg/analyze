@@ -8,8 +8,7 @@ use WebService::Hooktheory;
 my $key = shift || die "Usage: perl $0 1234567890abcdefghij [end_point] [modifier]\n";
 my $ep  = shift || '/trends/nodes';
 my $mod = shift // ''; # http://forum.hooktheory.com/t/trends-api-chord-input/272
-
-my $threshold = 0.2;
+my $threshold = shift // 0.2;
 
 my $ws = WebService::Hooktheory->new( activkey => $key );
 
