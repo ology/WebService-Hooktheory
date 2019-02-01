@@ -24,7 +24,7 @@ for my $i ( map { $mod . $_ } 1 .. 7 ) {
     for my $item ( @$r ) {
         if ( $item->{probability} >= $threshold ) {
             push @found, $item;
-            print "\tFound!\n";
+            print "\tFound $item->{child_path} with probability = $item->{probability}\n";
         }
     }
 
