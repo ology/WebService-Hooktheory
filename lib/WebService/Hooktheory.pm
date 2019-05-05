@@ -2,7 +2,7 @@ package WebService::Hooktheory;
 
 # ABSTRACT: Access to the Hooktheory API
 
-our $VERSION = '0.0405';
+our $VERSION = '0.0406';
 
 use Moo;
 use strictures 2;
@@ -13,6 +13,7 @@ use Mojo::UserAgent;
 use Mojo::JSON::MaybeXS;
 use Mojo::JSON qw( decode_json );
 use Mojo::URL;
+use Try::Tiny;
 
 =head1 SYNOPSIS
 
@@ -154,12 +155,12 @@ sub _handle_response {
 
     if ( $res->is_success ) {
         my $body = $res->body;
-        if ( $body =~ /{/ ) {
-            $data = decode_json( $res->body );
+        try {
+            $data = decode_json($body);
         }
-        else {
+        catch {
             croak $body, "\n";
-        }
+        };
     }
     else {
         croak "Connection error: ", $res->message;
