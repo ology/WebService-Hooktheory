@@ -2,7 +2,7 @@ package WebService::Hooktheory;
 
 # ABSTRACT: Access to the Hooktheory API
 
-our $VERSION = '0.0406';
+our $VERSION = '0.0407';
 
 use Moo;
 use strictures 2;
@@ -90,12 +90,7 @@ has ua => (
 
 Create a new C<WebService::Hooktheory> object.
 
-=head2 BUILD()
-
-Authenticate and set the B<activkey> attribute if given a valid username and
-password.
-
-Skip this step if given an B<activkey> in the constructor.
+=for Pod::Coverage BUILD
 
 =cut
 

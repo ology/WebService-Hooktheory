@@ -1,6 +1,7 @@
 Revision history for WebService-Hooktheory
 
 {{$NEXT}}
+    - Don't document the ->BUILD method.
 
 0.0406 2019-05-04 20:12:37
     - Replace kludgy JSON detection logic.
