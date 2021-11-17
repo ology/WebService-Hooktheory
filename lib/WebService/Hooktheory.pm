@@ -2,7 +2,7 @@ package WebService::Hooktheory;
 
 # ABSTRACT: Access to the Hooktheory API
 
-our $VERSION = '0.0407';
+our $VERSION = '0.0500';
 
 use Moo;
 use strictures 2;
