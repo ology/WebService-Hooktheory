@@ -21,7 +21,7 @@ throws_ok { $ws->fetch(endpoint => 'foo') }
 
 my $mock = Mojolicious->new;
 $mock->log->level('fatal'); # only log fatal errors to keep the server quiet
-$mock->routes->get('/trends/nodes' => sub {
+$mock->routes->get('/v1/trends/nodes' => sub {
     my $c = shift;
     is $c->param('cp'), '4,1', 'cp param';
     return $c->render(status => 200, json => { ok => 1 });
