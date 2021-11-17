@@ -68,7 +68,7 @@ The base URL.  Default: https://api.hooktheory.com/v1/
 
 has base => (
     is      => 'rw',
-    default => sub { Mojo::URL->new('https://api.hooktheory.com/v1') },
+    default => sub { 'https://api.hooktheory.com/v1' },
 );
 
 =head2 ua
@@ -124,15 +124,11 @@ sub fetch {
 
     croak 'No activkey provided' unless $self->activkey;
     croak 'No endpoint provided' unless $args{endpoint};
+    croak 'No query provided' unless $args{query};
 
-    my $query;
-    if ( $args{query} ) {
-        $query = join '&', map { "$_=$args{query}->{$_}" } keys %{ $args{query} };
-    }
-
-    my $url = $self->base . $args{endpoint};
-    $url .= '?' . $query
-        if $query;
+    my $url = Mojo::URL->new($self->base)
+        ->path($args{endpoint})
+        ->query(%{ $args{query} });
 
     my $tx = $self->ua->get( $url, { Authorization => 'Bearer ' . $self->activkey } );
 
