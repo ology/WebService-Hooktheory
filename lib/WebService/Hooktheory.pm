@@ -10,7 +10,6 @@ use namespace::clean;
 
 use Carp;
 use Mojo::UserAgent;
-use Mojo::JSON::MaybeXS;
 use Mojo::JSON qw( decode_json );
 use Mojo::URL;
 use Try::Tiny;
@@ -179,10 +178,10 @@ L<Moo>
 
 L<Mojo::JSON>
 
-L<Mojo::JSON::MaybeXS>
-
 L<Mojo::UserAgent>
 
 L<Mojo::URL>
+
+L<Try::Tiny>
 
 =cut
