@@ -1,6 +1,8 @@
 Revision history for WebService-Hooktheory
 
 {{$NEXT}}
+
+0.0600 2021-11-17 11:22:17
     - Fix Mojo::URL usage.
 
 0.0500 2021-11-17 10:32:33
