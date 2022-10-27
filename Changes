@@ -1,6 +1,7 @@
 Revision history for WebService-Hooktheory
 
 {{$NEXT}}
+    - Avoid implicit imports.
 
 0.0600 2021-11-17 11:22:17
     - Fix Mojo::URL usage.
