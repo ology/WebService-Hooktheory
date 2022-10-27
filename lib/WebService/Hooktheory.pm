@@ -2,7 +2,7 @@ package WebService::Hooktheory;
 
 # ABSTRACT: Access to the Hooktheory API
 
-our $VERSION = '0.0600';
+our $VERSION = '0.0601';
 
 use strictures 2;
 use Carp qw(croak);
